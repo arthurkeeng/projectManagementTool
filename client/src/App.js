@@ -4,6 +4,7 @@ import { ApolloProvider
 
  } from "@apollo/client";
 import Clients from "./components/clients";
+import Projects from "./components/projects";
 // import { Query } from "mongoose";
 import Modal from "./components/addClientModal";
 const cache = new InMemoryCache({
@@ -37,6 +38,7 @@ function App() {
     <Header/>
     <div className="container">
       <Modal/>
+      <Projects/>
      <Clients/>
     </div>
   </ApolloProvider>

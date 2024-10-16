@@ -13,6 +13,7 @@ const Clients = () => {
   }
   return (
     <>
+    <h2 className="m-4">THE CLIENTS</h2>
       {!loading && !error && (
         <table className="table table-hover mt-3">
           <thead>
