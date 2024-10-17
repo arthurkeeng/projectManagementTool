@@ -37,6 +37,11 @@ const ProjectModal = () => {
   const submitForm = (e) =>{
     e.preventDefault()
 
+    console.log('name', name);
+    console.log('description', description);
+    console.log('status', status);
+    console.log('clientId', clientId);
+    
     if(name === "" || description === "" || clientId === "" || status === ""){
         return alert("Please fill in all the fields")
     }

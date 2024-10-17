@@ -98,7 +98,9 @@ const RootMutations = new GraphQLObjectType({
           id : {type : GraphQLID}
         }, 
         async resolve(parent , args){
-            const deletedClient = await Client.findOneAndDelete({_id : args.id})
+          await Project.deleteMany({clientId : args.id})
+          
+          const deletedClient = await Client.findOneAndDelete({_id : args.id})
             
             return deletedClient
         }

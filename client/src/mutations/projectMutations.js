@@ -25,8 +25,21 @@ const DELETE_PROJECT = gql`
 
 `
 
+const EDIT_PROJECT = gql`
+    mutation editProject( $id : ID! ,  $name : String! , $description : String! , 
+    $status : ProjectChange 
+    ){
+        editProject(id : $id , name : $name , description : $description , status : $status){
+            id , name , description , status ,
+            client {
+                id , name , phone , email
+            }
+        }
+    }
+`
+
 
 export {
-    DELETE_PROJECT
+    DELETE_PROJECT , EDIT_PROJECT
     ,
      ADD_PROJECT}
