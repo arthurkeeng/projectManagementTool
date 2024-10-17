@@ -1,12 +1,14 @@
 import Header from "./components/Header";
+import { BrowserRouter as Router , Route , Routes } from "react-router-dom";
+
 import { ApolloProvider
   , ApolloClient, InMemoryCache , 
 
  } from "@apollo/client";
-import Clients from "./components/clients";
-import Projects from "./components/projects";
-// import { Query } from "mongoose";
-import Modal from "./components/addClientModal";
+
+import Home from "./pages/Home";
+import NotFound from "./pages/Not-Found";
+import SingleProject from "./pages/Project";
 const cache = new InMemoryCache({
   typePolicies : {
     Query : {
@@ -33,14 +35,19 @@ const client = new ApolloClient({
 function App() {
   return (<>
   <ApolloProvider client={client}>
+    <Router>
 
 
     <Header/>
     <div className="container">
-      <Modal/>
-      <Projects/>
-     <Clients/>
+    <Routes>
+      <Route path="/" element = {<Home/>}/>
+      <Route path="/projects/:id" element = {<SingleProject/>}/>
+      <Route path="*" element = {<NotFound/>}/>
+    </Routes>
     </div>
+    </Router>
+
   </ApolloProvider>
   </>
   );

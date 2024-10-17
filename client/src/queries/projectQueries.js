@@ -11,5 +11,17 @@ const GET_PROJECTS = gql`
     }
 
 `
+const GET_SINGLE_PROJECT = gql`
+    query getProject($id : ID!){
+        project(id : $id){
+            id , description , status , name
+            client(id : $id) {
+                name , phone , email
+            }
+        }
+    }
 
-export {GET_PROJECTS}
+`
+
+
+export {GET_PROJECTS , GET_SINGLE_PROJECT}
